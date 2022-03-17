@@ -110,19 +110,24 @@ ex. ```<div class="delay">Essa div somente seria exibida após o tempo definido<
 
 ## 5. Função para pegar parâmetros da url
 
-Usada em alguns casos
+Colocar esse código abaixo no início da página, antes de chamar ele.
 
 ```javascript
 <script>
-    // uso getUrlParameter('ppayId'));
     function getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-}
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
 </script>
 ```
+Como usar:
+
+```javascript
+getUrlParameter('ppayId'));
+```
+
 
 ---
 
