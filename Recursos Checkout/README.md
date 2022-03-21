@@ -328,6 +328,7 @@ Ao final da página coloque esse script:
 
 ## 10. Camuflador de link para Facebook Ads
 
+Coloque o código direto dentro da sua página como elemento html no local que você deseja que o botão apareça.
 
 ```html
 <script>
