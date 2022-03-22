@@ -332,4 +332,31 @@ Coloque o código direto dentro da sua página como elemento html no local que v
     }
 </script>
 <a href="#" id="redirect" onclick="perfectLink()">Continuar »</a>
+<script >
+    /* From cssbuttons.io by @adamgiebl */
+    #redirect {
+        position: relative;
+        font-family: arial;
+        padding: 10px 40px;
+        margin: 0px 10px 10px 0px;
+        float: left;
+        border-radius: 3px;
+        font-size: 20px;
+        color: #FFF;
+        text-decoration: none;
+        background-color: #2ecc71;
+        border: none;
+        border-bottom: 5px solid #27ae60;
+        text-shadow: 0px -2px #27ae60;
+        -webkit-transition: all 0.1s;
+        transition: all 0.1s;
+    }
+
+    #redirect:hover, #redirect:active {
+        -webkit-transform: translate(0px,5px);
+        -ms-transform: translate(0px,5px);
+        transform: translate(0px,5px);
+        border-bottom: 1px solid #2ecc71;
+    }
+</script>
 ```
