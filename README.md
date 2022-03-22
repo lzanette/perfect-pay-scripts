@@ -332,7 +332,7 @@ Coloque o código direto dentro da sua página como elemento html no local que v
     }
 </script>
 <a href="#" id="redirect" onclick="perfectLink()">Continuar »</a>
-<script >
+<style >
     /* From cssbuttons.io by @adamgiebl */
     #redirect {
         position: relative;
@@ -358,5 +358,5 @@ Coloque o código direto dentro da sua página como elemento html no local que v
         transform: translate(0px,5px);
         border-bottom: 1px solid #2ecc71;
     }
-</script>
+</style>
 ```
