@@ -8,11 +8,13 @@ Adicione o código em sua página como elemento html, sempre no final antes do �
 
 ## 1. Back Redirect
 
-Com esse script você vai direcionar todo o tráfego para uma url de sua escolha.
+Com esse script sempre que o potencial cliente clicar no back redirect do navegador, ele será apontado para a url
+definida.
 
-Todos os parâmetros da url já serão adicionados ao final da url.
+Todos os parâmetros da url serão adicionados automaticamente ao final da url.
 
 ```html
+
 <script>
     var urlBackRedirect = 'SUA URL AQUI'; // lembre-se de usar a url sem espaços
     // não altere nada abaixo dessa linha
@@ -39,11 +41,31 @@ var urlBackRedirect = '//' + window.location.hostname + '/PATH_RMKT'
 
 ## 2. Passar os parâmetros para todos os links da página
 
-Com esse script você vai direcionar todo o tráfego para uma url de sua escolha.
+Esse script foi um dos primeiros que criei no marketing digital, ele ajuda muito a criarmos muitas campanhas apontando
+para a mesma página de vendas, e mesmo assim mantermos todo trakeamento chegando no checkout.
 
 Todos os parâmetros da url já serão adicionados ao final da url.
 
+O checkout da perfectpay aceita os seguintes parâmetros:
+
+```&src=```
+
+```&utm_source=```
+
+```&utm_campaign=```
+
+```&utm_medium=```
+
+```&utm_content=```
+
+```&utm_therm=```
+
+```&utm_perfect=```
+
+```&click_id=```
+
 ```html
+
 <script>
     window.onload = function () {
         var links = document.getElementsByTagName("a");
@@ -57,11 +79,11 @@ Todos os parâmetros da url já serão adicionados ao final da url.
 </script>
 ```
 
-Para pegar links específicos use:
+Para pegar links específicos trocar ```var links = document.getElementsByTagName("a");``` na 3a por:
 
 ```javascript
-document.querySelector("a.checkout_link"); // se somente 1
-document.querySelectorAll("a.checkout_link"); // se mais de 1
+var links = document.querySelector("a.checkout_link"); // se somente 1
+var links = document.querySelectorAll("a.checkout_link"); // se mais de 1 link a ser alterado
 ```
 
 ---
@@ -91,7 +113,10 @@ Todos os parâmetros da url já serão adicionados ao final da url.
 
 ---
 
-## 4. Esconder botões até certo momento
+## 4. Exibir botões de vendas, ou partes da página, até o minuto que desejar
+
+Normalmente esse recurso é usado para p[aginas com vídeos de vendas, somente exibindo as partes do site quanto o vídeo
+chega no momento de falar o valor.
 
 Coloque a classe ```.delay``` em todas as div que quiser esconder,
 ex. ```<div class="delay">Essa div somente seria exibida após o tempo definido</div>```
@@ -108,26 +133,28 @@ ex. ```<div class="delay">Essa div somente seria exibida após o tempo definido<
 
 ---
 
-## 5. Função para pegar parâmetros da url
+## 5. Função Javascript para pegar parâmetros da url
 
 Colocar esse código abaixo no início da página, antes de chamar ele.
 
 ```javascript
 <script>
     function getUrlParameter(name) {
-        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-        var results = regex.exec(location.search);
-        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-    }
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
 </script>
 ```
+
 Como usar:
 
 ```javascript
-getUrlParameter('ppayId'));
+getUrlParameter('ppayId')
+)
+;
 ```
-
 
 ---
 
@@ -136,6 +163,7 @@ getUrlParameter('ppayId'));
 Coloque logo após a tag body do seu site, altere somente: ```SUA URL AQUI```.
 
 ```html
+
 <backredirect>
     <a class="arrow" href="SUA URL AQUI">
         &#8249;
@@ -178,6 +206,7 @@ Url está apontando para o topo da página, se desejar enviar para outra url, al
 em ```var URL_FINAL = '#';```
 
 ```html
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
@@ -206,7 +235,7 @@ em ```var URL_FINAL = '#';```
 
 ---
 
-## 8. Script PHP para colocar os parâmetros na url e marcar pixel antes de redirecionar
+## 8. Redirecionar com PHP para colocar os parâmetros na url e marcar pixel antes de redirecionar
 
 Se desejar, altere os nomes.
 
@@ -242,9 +271,11 @@ Exemplo de funcionamento: https://codepen.io/leonardo-zanette/pen/abEvqwJ
 
 codepen[abEvqwJ][350]
 
-Coloque esse código em todos os locais que deseja ver o contador regressivo funcionando. Pode colocar em quantos lugares quiser que apareça o contador.
+Coloque esse código em todos os locais que deseja ver o contador regressivo funcionando. Pode colocar em quantos lugares
+quiser que apareça o contador.
 
 ```html
+
 <div class="countdown">
     <div class="label">O desconto encerra em:</div>
     <div class='time'>00:00</div>
@@ -254,6 +285,7 @@ Coloque esse código em todos os locais que deseja ver o contador regressivo fun
 Ao final da página coloque esse script:
 
 ```html
+
 <script>
     var MINUTOS = 15;
     // Não altere nada abaixo dessa linha
@@ -280,9 +312,9 @@ Ao final da página coloque esse script:
     };
 </script>
 <style>
-    .countdown{
+    .countdown {
         font: normal 12px/20px Arial, Helvetica, sans-serif;
-        word-wrap:break-word;
+        word-wrap: break-word;
         box-shadow: 0 1px 1px 0 rgba(1, 1, 1, 0.4);
         width: 250px;
         height: 90px;
@@ -301,7 +333,7 @@ Ao final da página coloque esse script:
         letter-spacing: 2px;
         padding: 7px 0;
     }
-    .countdown .time{
+    .countdown .time {
         color: #fff;
         position: relative;
         z-index: 1;
@@ -326,16 +358,18 @@ Coloque o código direto dentro da sua página como elemento html no local que v
 Exemplo: https://codepen.io/leonardo-zanette/pen/eYydgep
 
 ```html
+
 <script>
     function perfectLink() {
         var urlAfiliado = ''; // só alterar aqui PPU.....
-        var perfectlink  = 'https://go.perfectpay.com.br/' + urlAfiliado + location.search;
+        var perfectlink = 'https://go.perfectpay.com.br/' + urlAfiliado + location.search;
         return window.open(perfectlink, '_blank');
     }
 </script>
 <div style='width:100%; text-align:center; margin:20px'>
-    <a href="#" id="redirect" onclick="perfectLink()">Continuar »</a></div>
-<style >
+    <a href="#" id="redirect" onclick="perfectLink()">Continuar »</a>
+</div>
+<style>
     #redirect {
         position: relative;
         font-family: arial;
@@ -352,12 +386,107 @@ Exemplo: https://codepen.io/leonardo-zanette/pen/eYydgep
         -webkit-transition: all 0.1s;
         transition: all 0.1s;
     }
-
     #redirect:hover, #redirect:active {
-        -webkit-transform: translate(0px,5px);
-        -ms-transform: translate(0px,5px);
-        transform: translate(0px,5px);
+        -webkit-transform: translate(0px, 5px);
+        -ms-transform: translate(0px, 5px);
+        transform: translate(0px, 5px);
         border-bottom: 1px solid #2ecc71;
     }
 </style>
 ```
+
+---
+
+## 11. Script para redirecionar o tráfego, marcando o pixel do Facebook antes de redirecionar
+
+Coloque na primeira linha do seu site, altere somente: ```SUA URL AQUI```.
+
+Se desejar alterar o tempo para redirecionar, mude o valor 3 * 1000 para o valor desejado, sendo 3 a quantidade de
+segundos, não altere o 1000 pois o temporizador é em milesegundos.
+
+```html
+
+<script language="JavaScript">
+    var URL = 'SUA URL AQUI'; // lembre-se de usar a url sem espaços antes ou depois
+    // não altere nada abaixo dessa linha
+    urlBackRedirect = URL.trim() +
+            (URL.indexOf("?") > 0 ? '&' : '?') +
+            document.location.search.replace('?', '').toString();
+    setTimeout(function () {
+        window.location = URL;
+    }, 3 * 1000);
+</script>
+```
+
+Você também pode usar esse recurso em html, lembre-se de colocar a url sem espaços, nesse caso não é possível passar os
+parâmetros pela url, já que é um html puro.
+
+```html
+
+<meta http-equiv="refresh" content=3; URL='SUA URL AQUI'/>
+```
+
+---
+
+## 12. Deeplink Youtube - Anúncios direto para vídeo do Yootube com deeplink, sem risco de bloqueio, enviando para o APP ou para o browser
+
+Quando você coloca esse script em sua página, a pessoa que clicar nos seus anúncios que tiverem esse script na página
+vão ser direcionadas corretamente para o App do Youtube, quando acessando via mobile, e quando acessando pelo
+computador, vão acessar no próprio browser. Isso garante uma boa experiência para seu usuário.
+
+```html
+
+<script type="text/javascript">
+    window.onload = function () {
+        var desktopFallback = "https://www.youtube.com/watch?v=9_Xhj26L81g",
+                mobileFallback = "https://www.youtube.com/watch?v=9_Xhj26L81g",
+                app = "vnd.youtube://9_Xhj26L81g";
+        if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            window.location = app;
+            window.setTimeout(function () {
+                window.location = mobileFallback;
+            }, 25);
+        } else {
+            window.location = desktopFallback;
+        }
+        function killPopup() {
+            window.removeEventListener('pagehide', killPopup);
+        }
+        window.addEventListener('pagehide', killPopup);
+    };
+</script>
+```
+
+---
+
+## 13. Deeplink Instagram - Anúncios direto para vídeo do Yootube com deeplink, sem risco de bloqueio, enviando para o APP ou para o browser
+
+A pessoa que clicar nos seus anúncios que tiverem esse script na página vão ser direcionadas corretamente para o App do
+Instagram, quando acessando via mobile, e quando acessando pelo computador, vão acessar no próprio browser.
+
+Isso garante uma boa experiência para seu usuário.
+
+Troque apenas ```USERNAME```
+
+```html
+
+<script type="text/javascript">
+    window.onload = function () {
+        var USERNAME = "leonardozanette";
+        if (/Android/i.test(navigator.userAgent)) {
+            window.location = 'intent://www.instagram.com/' + USERNAME + '/#Intent;package=com.instagram.android;scheme=https;end';
+        } else if (/iPhone|iPod/i.test(navigator.userAgent)) {
+            window.location = 'instagram://user?username=' + USERNAME;
+        } else {
+            window.location = 'https://instagram.com/' + USERNAME;
+        }
+        function killPopup() {
+            window.removeEventListener('pagehide', killPopup);
+        }
+        window.addEventListener('pagehide', killPopup);
+    };
+</script>
+```
+
+
+
