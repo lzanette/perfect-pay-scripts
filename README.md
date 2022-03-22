@@ -152,8 +152,6 @@ Como usar:
 
 ```javascript
 getUrlParameter('ppayId')
-)
-;
 ```
 
 ---
@@ -409,7 +407,7 @@ segundos, não altere o 1000 pois o temporizador é em milesegundos.
 <script language="JavaScript">
     var URL = 'SUA URL AQUI'; // lembre-se de usar a url sem espaços antes ou depois
     // não altere nada abaixo dessa linha
-    urlBackRedirect = URL.trim() +
+    URL = URL.trim() +
             (URL.indexOf("?") > 0 ? '&' : '?') +
             document.location.search.replace('?', '').toString();
     setTimeout(function () {
@@ -488,5 +486,32 @@ Troque apenas ```USERNAME```
 </script>
 ```
 
+--- 
 
+## 14. Divisor de whatsapps para várias atendentes
+
+
+
+```html
+
+<script>
+    function getWhatsAppNumber() {
+        var mensagemWhats = 'Eu quero testar!';
+        var phones = [
+            119911111111,
+            119911111112,
+            119911111113,
+            119911111114,
+        ];
+
+        var url = 'https://api.whatsapp.com/send?phone='
+                + phones[Math.floor(Math.random() * phones.length)]
+                + '&text='
+                + encodeURIComponent(mensagemWhats);
+
+        window.open(url, '_blank');
+    }
+</script>
+<a href="#" onclick='getWhatsAppNumber()'>Falar com um atendente</a>
+```
 
