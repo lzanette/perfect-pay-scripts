@@ -316,3 +316,20 @@ Ao final da página coloque esse script:
     }
 </style>
 ```
+
+---- 
+
+## 10. Camuflador de link para Facebook Ads
+
+Coloque o código direto dentro da sua página como elemento html no local que você deseja que o botão apareça.
+
+```html
+<script>
+    function perfectLink() {
+        var path = location.pathname+location.search;
+        var perfectlink  = 'https://go.perfectpay.com.br' + path;
+        return location.href = perfectlink;
+    }
+</script>
+<a href="#" id="redirect" onclick="perfectLink()">Continuar »</a>
+```
