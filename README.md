@@ -328,21 +328,20 @@ Exemplo: https://codepen.io/leonardo-zanette/pen/eYydgep
 ```html
 <script>
     function perfectLink() {
-        var urlAfiliado = ''; // PPU.....
+        var urlAfiliado = ''; // só alterar aqui PPU.....
         var perfectlink  = 'https://go.perfectpay.com.br/' + urlAfiliado + location.search;
         return location.href = perfectlink;
     }
 </script>
-<a href="#" id="redirect" onclick="perfectLink()">Continuar »</a>
+<div style='width:100%; text-align:center; margin:20px'>
+    <a href="#" id="redirect" onclick="perfectLink()">Continuar »</a></div>
 <style >
-    /* From cssbuttons.io by @adamgiebl */
     #redirect {
         position: relative;
         font-family: arial;
         padding: 10px 40px;
-        margin: 0px 10px 10px 0px;
-        float: left;
-        border-radius: 3px;
+        margin: 20px auto;
+        border-radius: 5px;
         font-size: 20px;
         color: #FFF;
         text-decoration: none;
