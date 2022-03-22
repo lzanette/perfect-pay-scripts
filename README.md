@@ -330,7 +330,7 @@ Exemplo: https://codepen.io/leonardo-zanette/pen/eYydgep
     function perfectLink() {
         var urlAfiliado = ''; // só alterar aqui PPU.....
         var perfectlink  = 'https://go.perfectpay.com.br/' + urlAfiliado + location.search;
-        return location.href = perfectlink;
+        return window.open(perfectlink, '_blank');
     }
 </script>
 <div style='width:100%; text-align:center; margin:20px'>
