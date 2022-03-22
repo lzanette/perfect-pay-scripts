@@ -327,7 +327,8 @@ Coloque o código direto dentro da sua página como elemento html no local que v
 <script>
     function perfectLink() {
         var path = location.pathname+location.search;
-        var perfectlink  = 'https://go.perfectpay.com.br' + path;
+        var urlAfiliado = ''; // PPU.....
+        var perfectlink  = 'https://go.perfectpay.com.br' + urlAfiliado + path;
         return location.href = perfectlink;
     }
 </script>
