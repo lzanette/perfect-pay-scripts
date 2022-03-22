@@ -323,6 +323,8 @@ Ao final da página coloque esse script:
 
 Coloque o código direto dentro da sua página como elemento html no local que você deseja que o botão apareça.
 
+Exemplo: https://codepen.io/leonardo-zanette/pen/eYydgep
+
 ```html
 <script>
     function perfectLink() {
