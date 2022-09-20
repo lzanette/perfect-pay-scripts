@@ -160,6 +160,9 @@ getUrlParameter('ppayId')
 
 Coloque logo após a tag body do seu site, altere somente: ```SUA URL AQUI```.
 
+Exemplo:
+https://codepen.io/leonardo-zanette/pen/yLPBeMw
+
 ```html
 
 <backredirect>
@@ -490,8 +493,6 @@ Troque apenas ```USERNAME```
 
 ## 14. Divisor de whatsapps para várias atendentes
 
-
-
 ```html
 
 <script>
@@ -515,3 +516,93 @@ Troque apenas ```USERNAME```
 <a href="#" onclick='getWhatsAppNumber()'>Falar com um atendente</a>
 ```
 
+--- 
+
+## 15. Auto Popular checkout da Perfect Pay
+
+Parâmetros personalizados no Checkout
+Como usar os parâmetros?
+
+Coloque o parâmetro ao final da sua url, lembre-se:
+Uma url só pode possuir um símbolo de interrogação "?"
+Se precisar usar mais de um parâmetro use o símbolo "&"
+
+Exemplo:
+Sua URL:
+http://go.perfectpay.com.br/pay/PPU38CKC5OG
+
+Adicionando 1 parâmetro:
+http://go.perfectpay.com.br/pay/PPU38CKC5OG?split=12
+
+Dois ou mais parâmetros:
+http://go.perfectpay.com.br/pay/PPU38CKC5OG?split=12&hidepix=1
+
+--------------------------------------
+
+## 16. Parâmetros aceitos na Perfect Pay
+
+| Parâmetros aceitos | Como funciona                                                                                                                                                                                                        |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| split=12           | Alterar a quantidade de parcelas do cartão                                                                                                                                                                           |
+| hideb = 1          | Esconder boleto ou hidebillet = 1                                                                                                                                                                                    |
+| hidepix=1          | Esconder pix                                                                                                                                                                                                         |
+| hidecard=1         | Esconder cartão                                                                                                                                                                                                      |
+| hidebump=1         | Esconder order bumps                                                                                                                                                                                                 |
+| name=              | Preencher o nome                                                                                                                                                                                                     |
+| email=             | Preencher o email                                                                                                                                                                                                    |
+| phone=             | Preencher o telefone                                                                                                                                                                                                 |
+| cep=               | Preencher o CEP do cliente                                                                                                                                                                                           |
+| billetd=3          | Quantidade de dias para vencer boleto                                                                                                                                                                                |
+| scarcity=15        | Quantidade de minutos a mostrar no contador de escassez, esse contador aparece no topo da página. <br/> Ele somente exibe se não existir a configuração de escassez nas configurações de checkout dentro do produto. |
+
+### 16.1. Parâmetros para trackeamento de vendas aceitos na Perfect Pay
+
+Internamente na Perfect Pay em detalhamento de vendas você consegue identificar relatórios específicos por cada um dos parâmetros abaixo:
+
+- src=
+- sck=
+- utm_source=
+- utm_campaign=
+- utm_medium=
+- utm_therm=
+- utm_content=
+- utm_perfect= (Evite usar esse, usamos para alguns recursos de recuperação.)
+- click_id=
+
+----
+
+## 17. Outras funcionalidates na Perfect Pay
+
+Todos links abaixo só precisa alterar TRANSACAO pelo seu código de venda.
+
+- **Auto preencher com dados do cliente**, com base no checkout preenchido. (ideal para recuperar vendas enviando por
+  email/whats/sms, o checkout já preenchido)
+  https://checkout.perfectpay.com.br/checkout/TRANSACAO
+
+
+- **Url direta para o boleto do cliente**
+  https://checkout.perfectpay.com.br/boleto/TRANSACAO
+
+
+- **Abrir tela para pagamento do Pix**
+  https://checkout.perfectpay.com.br/pix/TRANSACAO
+
+
+- **Abrir o boleto em pdf** (usado normalmente em automações de WhatsApp)
+  https://checkout.perfectpay.com.br/boleto/TRANSACAO?pdf=1
+
+
+- **Página de obrigado venda aprovada.** (Sem a TRANSACAO é a url que pode ser considerada para ativar pixel de compra.)
+  Abrindo essa url com qualquer venda aprovada, de qualquer cliente, você poderá verificar quais pixels foram ativados
+  na página.
+  https://checkout.perfectpay.com.br/payments/thanks?payment=TRANSACAO
+
+
+- **Página de acesso à compra do cliente** (Envie essa url para seu cliente e ele terá acesso ao produto, é uma boa ideia
+  colocar na sua automação de email para compras aprovadas)
+  https://app.perfectpay.com.br/customer
+
+
+- **Link para liberação do Perfect Academy de forma simplificada.** (Com essa url seu cliente consegue logar facilmente no
+  academy, mesmo que ele não tenha qual email realizou a compra)
+  https://academy.perfectpay.com.br/br/pedido/TRANSACAO
