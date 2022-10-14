@@ -518,7 +518,25 @@ Troque apenas ```USERNAME```
 
 --- 
 
-## 15. Auto Popular checkout da Perfect Pay
+## 15. Impedir clique com botão direito e inspecionar elemento
+
+```html
+
+<script>
+    document.addEventListener("keydown", function (e) {
+        if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) { // Prevent F12
+            e.preventDefault()
+        }
+    }, true);
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault()
+    }, true);
+</script>
+```
+
+--- 
+
+## 16. Auto Popular checkout da Perfect Pay
 
 Parâmetros personalizados no Checkout
 Como usar os parâmetros?
@@ -539,7 +557,7 @@ http://go.perfectpay.com.br/pay/PPU38CKC5OG?split=12&hidepix=1
 
 --------------------------------------
 
-## 16. Parâmetros aceitos na Perfect Pay
+## 17. Parâmetros aceitos na Perfect Pay
 
 | Parâmetros aceitos | Como funciona                                                                                                                                                                                                        |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -555,9 +573,10 @@ http://go.perfectpay.com.br/pay/PPU38CKC5OG?split=12&hidepix=1
 | billetd=3          | Quantidade de dias para vencer boleto                                                                                                                                                                                |
 | scarcity=15        | Quantidade de minutos a mostrar no contador de escassez, esse contador aparece no topo da página. <br/> Ele somente exibe se não existir a configuração de escassez nas configurações de checkout dentro do produto. |
 
-### 16.1. Parâmetros para trackeamento de vendas aceitos na Perfect Pay
+### 17.1. Parâmetros para trackeamento de vendas aceitos na Perfect Pay
 
-Internamente na Perfect Pay em detalhamento de vendas você consegue identificar relatórios específicos por cada um dos parâmetros abaixo:
+Internamente na Perfect Pay em detalhamento de vendas você consegue identificar relatórios específicos por cada um dos
+parâmetros abaixo:
 
 - src=
 - sck=
@@ -571,7 +590,7 @@ Internamente na Perfect Pay em detalhamento de vendas você consegue identificar
 
 ----
 
-## 17. Outras funcionalidates na Perfect Pay
+## 18. Outras funcionalidates na Perfect Pay
 
 Todos links abaixo só precisa alterar TRANSACAO pelo seu código de venda.
 
@@ -598,11 +617,13 @@ Todos links abaixo só precisa alterar TRANSACAO pelo seu código de venda.
   https://checkout.perfectpay.com.br/payments/thanks?payment=TRANSACAO
 
 
-- **Página de acesso à compra do cliente** (Envie essa url para seu cliente e ele terá acesso ao produto, é uma boa ideia
+- **Página de acesso à compra do cliente** (Envie essa url para seu cliente e ele terá acesso ao produto, é uma boa
+  ideia
   colocar na sua automação de email para compras aprovadas)
   https://app.perfectpay.com.br/customer
 
 
-- **Link para liberação do Perfect Academy de forma simplificada.** (Com essa url seu cliente consegue logar facilmente no
+- **Link para liberação do Perfect Academy de forma simplificada.** (Com essa url seu cliente consegue logar facilmente
+  no
   academy, mesmo que ele não tenha qual email realizou a compra)
   https://academy.perfectpay.com.br/br/pedido/TRANSACAO
