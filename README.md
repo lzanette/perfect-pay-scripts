@@ -86,6 +86,18 @@ var links = document.querySelector("a.checkout_link"); // se somente 1
 var links = document.querySelectorAll("a.checkout_link"); // se mais de 1 link a ser alterado
 ```
 
+Para receber os dados corretamente do Facebook recomendo usar esse formato no facebook
+
+```
+utm_source={{campaign.name}}&utm_medium={{adset.name}}&utm_campaign={{ad.name}}&utm_content={{placement}}
+```
+
+Ou pode usar em apenas 1 parâmetro de forma mais simplificada, pessoalmente eu prefiro dessa forma:
+
+```
+src={{campaign.name}}|{{adset.name}}|{{ad.name}}|{{placement}}
+```
+
 ---
 
 ## 3. Colocar imagem do pixel do facebook em um iframe (para página de obrigado)
