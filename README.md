@@ -86,6 +86,8 @@ var links = document.querySelector("a.checkout_link"); // se somente 1
 var links = document.querySelectorAll("a.checkout_link"); // se mais de 1 link a ser alterado
 ```
 
+### 2.1 trackeando do Facebook (Recomendação)
+
 Para receber os dados corretamente do Facebook recomendo usar esse formato no facebook
 
 ```
