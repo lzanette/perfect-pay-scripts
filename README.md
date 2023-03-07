@@ -641,3 +641,27 @@ Todos links abaixo só precisa alterar TRANSACAO pelo seu código de venda.
   no
   academy, mesmo que ele não tenha qual email realizou a compra)
   https://academy.perfectpay.com.br/br/pedido/TRANSACAO
+  
+  
+  ----
+  
+  ## 18. Parâmetros enviando pela url após a venda na Perfect Pay
+  
+  Quando a compra é finalizada enviamos essas informações na url abrindo ela como iframe a sua página com esses parâmetros, assim você consegue usar para criar algum script específico dentro do seu domínio usando esses dados.
+    
+
+| Parâmetros aceitos | Como funciona                                              |
+|--------------------|------------------------------------------------------------|
+| ppayId=PPCPMTB1010 | Código da compra                                           |
+| planId=PPLAAA      | Código do plano                                            |
+| productId=PPPAAA   | Código do produto                                          |
+| e                  | Email do cliente                                           |
+| value              | Valor da venda formato inteiro 10.10                       |
+| payerName          | Nome do cliente                                            |
+| status             | Status da compra                                           |
+| parcelas           | Quantidade de parcelas escolhida, caso cartão              |
+| phone              | Telefone do cliente                                        |
+| cep                | CEP do cliente                                             |
+| ...                | além de todos os parâmetros que vieram na url (src, sck, utm_source, utm_campaign, utm_medium, utm_therm, utm_content, click_id) |
+  
+
