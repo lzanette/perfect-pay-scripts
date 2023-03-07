@@ -643,7 +643,9 @@ Todos links abaixo só precisa alterar TRANSACAO pelo seu código de venda.
   https://academy.perfectpay.com.br/br/pedido/TRANSACAO
   
   
+  
   ----
+  
   
   ## 18. Parâmetros enviando pela url após a venda na Perfect Pay
   
