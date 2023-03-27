@@ -113,7 +113,7 @@ use App\Api\test\PerfectPayApi;
 
     // agora pode requisitar os dados das assinaturas
     $filters  = [
-        'customer_email'   => 'xavierjairo94@gmail.com',
+        'customer_email'   => 'emaildocliente@gmail.com',
         // 'identification_number' => 12312312312" // filtro por cpf
     ];
     $getSubscriptions = $perfectPayApi->getSubscriptions($accessToken, $filters);
