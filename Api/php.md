@@ -139,3 +139,24 @@ use App\Api\test\PerfectPayApi;
 
     dump($getSubscriptions);
 ```
+
+--- 
+--- 
+
+### Exemplo funcionamento no Postman
+
+Logando com seu email na url:
+
+POST https://app.perfectpay.com.br/api/auth/login
+
+Você recebe o access_token
+
+» Com esse valor você deve colocar no header das outras requisições, esse será seu login ao sistema
+
+![img.png](img.png)
+
+#### Colocando no header a informação
+
+![img_1.png](img_1.png)
+
+### 
