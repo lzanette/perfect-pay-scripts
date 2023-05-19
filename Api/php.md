@@ -160,3 +160,95 @@ Você recebe o access_token
 ![img_1.png](img_1.png)
 
 ### 
+
+## Com o api token
+
+```php
+<?php
+
+namespace App\Api;
+
+class PerfectPayApi
+{
+    private string $email;
+    private string $password;
+    private string $requestUrl;
+    private string $apiUrl;
+    private string $accessToken;
+
+    public function __construct()
+    {
+        $this->apiToken    = 'TOKEN DENTRO DA PAY EM FERRAMENTAS > API';
+        $this->apiUrl   = 'https://app.perfectpay.com.br/api';
+    }
+
+    public function request(array $data, array $headers = [])
+    {
+        $headers += [
+            'Content-type: application/json',
+            'Accept: application/json'
+        ];
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->apiUrl . $this->requestUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+        $result   = json_decode($response, true);
+        curl_close($ch);
+
+        return $result;
+    }
+
+    public function getSales(array $filters)
+    {
+        $headers          = [
+            "Authorization: Bearer $this->apiToken",
+        ];
+        $this->requestUrl = '/v2/sales/get';
+
+        return $this->request($filters, $headers);
+    }
+
+    public function getSubscriptions(array $filters)
+    {
+        $headers          = [
+            "Authorization: Bearer $this->apiToken",
+        ];
+        $this->requestUrl = '/v2/subscriptions/get';
+
+        return $this->request($filters, $headers);
+    }
+}
+// Filtros
+// 'page'                => 'nullable|integer|min:1|max:10000',
+// 'paginate'            => 'nullable|integer|min:1|max:1000',
+// "start_date_approved" => "required_without_all:start_date_sale,start_date_updated,transaction_token|date_format:Y-m-d",
+// "end_date_approved"   => "required_with:start_date_approved|date_format:Y-m-d",
+// "start_date_sale"     => "required_without_all:start_date_approved,start_date_updated,transaction_token|date_format:Y-m-d",
+// "end_date_sale"       => "required_with:start_date_sale|date_format:Y-m-d",
+// "start_date_updated"  => "required_without_all:start_date_approved,start_date_sale,transaction_token|date_format:Y-m-d",
+// "end_date_updated"    => "required_with:start_date_updated|date_format:Y-m-d",
+// 'sale_status'         => 'nullable|array',
+// 'transaction_token'   => 'nullable|string|max:50',
+// 'email'               => 'nullable|string|email|max:200',
+// 'product_code'               => 'nullable|string|max:300',
+
+$perfectPayApi = new PerfectPayApi();
+$sales = $perfectPayApi->getSales(['email' => 'contato@email.com']);
+$sales = $perfectPayApi->getSales([
+                                    'email' => 'contato@email.com', 
+                                    'product_code' => 'PPP1111,PPP2222,PPP3333'
+]);
+
+foreach ($sales as $sale) {
+    if ($sale['product_code'] == '') {
+    
+    } 
+    // percorre sales
+}
+
+```
