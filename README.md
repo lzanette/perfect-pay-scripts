@@ -667,3 +667,14 @@ Todos links abaixo só precisa alterar TRANSACAO pelo seu código de venda.
 | ...                | além de todos os parâmetros que vieram na url (src, sck, utm_source, utm_campaign, utm_medium, utm_therm, utm_content, click_id) |
   
 
+--- 
+
+## 19. Ativar Pixel do TikTok
+
+Isso vai gerar um evento de conversão no Tiktok e vai deixar o pixel pronto para usar em qualquer campanha.
+
+Pegue o link abaixo, troque PIXEL pelo seu pixel do tiktok e abra ele no navegador:
+
+```
+https://pixel.perfectpay.com.br/pixel/tiktok/ativar/PIXEL
+```
