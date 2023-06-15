@@ -644,10 +644,10 @@ Todos links abaixo só precisa alterar TRANSACAO pelo seu código de venda.
   
   
   
-  ----
+----
   
   
-  ## 18. Parâmetros enviando pela url após a venda na Perfect Pay
+## 19. Parâmetros enviando pela url após a venda na Perfect Pay
   
   Quando a compra é finalizada enviamos essas informações na url abrindo ela como iframe a sua página com esses parâmetros, assim você consegue usar para criar algum script específico dentro do seu domínio usando esses dados.
     
@@ -669,7 +669,7 @@ Todos links abaixo só precisa alterar TRANSACAO pelo seu código de venda.
 
 --- 
 
-## 19. Ativar Pixel do TikTok
+## 20. Ativar Pixel do TikTok
 
 Isso vai gerar um evento de conversão no Tiktok e vai deixar o pixel pronto para usar em qualquer campanha.
 
